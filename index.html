@@ -5,33 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>AR Aging Dashboard</title>
 
-<!-- Import map: le dice al navegador dónde encontrar cada paquete cuando el
-     JSX hace `import ... from "react"`, `"recharts"`, etc. -->
-<script type="importmap">
-{
-  "imports": {
-    "react": "https://esm.sh/react@18.3.1",
-    "react-dom/client": "https://esm.sh/react-dom@18.3.1/client?deps=react@18.3.1",
-    "recharts": "https://esm.sh/recharts@2.12.7?deps=react@18.3.1,react-dom@18.3.1",
-    "lucide-react": "https://esm.sh/lucide-react@0.383.0?deps=react@18.3.1"
-  }
-}
-</script>
-
-<!-- Babel Standalone: transforma el JSX en el navegador, respetando el import map -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.24.7/babel.min.js"></script>
 
 <style>
   * { box-sizing: border-box; }
-  body { margin: 0; font-family: Inter, system-ui, sans-serif; }
+  body { margin: 0; font-family: Inter, system-ui, sans-serif; background: #F1F3F4; }
+  select, input { font-family: inherit; font-size: 12px; padding: 5px 8px; border-radius: 6px; border: 1px solid #D9DEE3; background: #fff; color: #334155; }
 </style>
 </head>
 <body>
 <div id="root"></div>
 
-<!-- data-type="module" le dice a Babel que deje los import/export como ES modules
-     nativos (que el navegador resuelve usando el import map de arriba),
-     y solo transforme la sintaxis JSX -->
-<script type="text/babel" data-type="module" data-presets="react" src="dashboard.jsx"></script>
+<!-- Babel toma este archivo externo, lo convierte de JSX a JS en el navegador, y lo ejecuta -->
+<script type="text/babel" src="dashboard.jsx" data-presets="react"></script>
 </body>
 </html>
