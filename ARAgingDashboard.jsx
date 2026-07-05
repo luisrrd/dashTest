@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import ReactDOM from "react-dom/client";
 import {
   BarChart,
   Bar,
@@ -83,7 +84,7 @@ const fmtUSD = (n) =>
     ? `($${Math.abs(n).toLocaleString("en-US")})`
     : `$${n.toLocaleString("en-US")}`;
 
-export default function ARAgingDashboard() {
+function ARAgingDashboard() {
   const [portfolio, setPortfolio] = useState("All");
 
   const portfolios = useMemo(
@@ -259,3 +260,6 @@ export default function ARAgingDashboard() {
     </div>
   );
 }
+
+// Bootstrap: monta el componente en #root cuando el navegador ejecuta este archivo
+ReactDOM.createRoot(document.getElementById("root")).render(<ARAgingDashboard />);
